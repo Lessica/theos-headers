@@ -2,6 +2,10 @@
 // Set ROCKETBOOTSTRAP_LOAD_DYNAMIC and then include rocketbootstrap.h
 #include <dlfcn.h>
 
+#ifndef __COREFOUNDATION_CFMESSAGEPORT__
+#include <CoreFoundation/CFMessagePort.h>
+#endif
+
 __attribute__((unused))
 static kern_return_t rocketbootstrap_look_up(mach_port_t bp, const name_t service_name, mach_port_t *sp)
 {

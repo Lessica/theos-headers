@@ -2,6 +2,10 @@
 #include <mach/mach.h>
 #include <bootstrap.h>
 
+#ifndef __COREFOUNDATION_CFMESSAGEPORT__
+#include <CoreFoundation/CFMessagePort.h>
+#endif
+
 __BEGIN_DECLS
 #ifndef ROCKETBOOTSTRAP_LOAD_DYNAMIC
 
