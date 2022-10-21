@@ -39,20 +39,46 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 __BEGIN_DECLS
 
-#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_3_2
-CGRect GSFullScreenApplicationContentRect();
-#endif
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
-CGSize GSMainScreenPixelSize(void); // default to 320 x 480.
-CGSize GSMainScreenPointSize(void); // default to 320 x 480.
+#if CGFLOAT_IS_DOUBLE
+typedef float GSFloat;
+struct GSPoint {
+    GSFloat x;
+    GSFloat y;
+};
+struct GSSize {
+    GSFloat width;
+    GSFloat height;
+};
+struct GSRect {
+    GSPoint origin;
+    GSSize size;
+};
+struct GSAffineTransform {
+    GSFloat a, b, c, d;
+    GSFloat tx, ty;
+};
+#else
+typedef CGFloat GSFloat;
+typedef CGPoint GSPoint;
+typedef CGSize GSSize;
+typedef CGRect GSRect;
+typedef CGAffineTransform GSAffineTransform;
 #endif
 
-void GSSetMainScreenInfo(CGSize screenSize, CGFloat screenScale, int screenOrientation);
-CGAffineTransform GSMainScreenPositionTransform();
-CGAffineTransform GSMainScreenWindowTransform();
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_3_2
+GSRect GSFullScreenApplicationContentRect();
+#endif
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
+GSSize GSMainScreenPixelSize(void); // default to 320 x 480.
+GSSize GSMainScreenPointSize(void); // default to 320 x 480.
+#endif
+
+void GSSetMainScreenInfo(GSSize screenSize, GSFloat screenScale, int screenOrientation);
+GSAffineTransform GSMainScreenPositionTransform();
+GSAffineTransform GSMainScreenWindowTransform();
 int GSMainScreenOrientation();
-CGFloat GSMainScreenScaleFactor();
-CGSize GSMainScreenSize();
+GSFloat GSMainScreenScaleFactor();
+GSSize GSMainScreenSize();
 
 __END_DECLS
 

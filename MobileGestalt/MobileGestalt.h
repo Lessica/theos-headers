@@ -56,6 +56,7 @@ FOUNDATION_EXPORT int MGSetAnswer(CFStringRef question, CFTypeRef answer);
 
 static const CFStringRef kMGDiskUsage = CFSTR("DiskUsage");
 static const CFStringRef kMGModelNumber = CFSTR("ModelNumber");
+static const CFStringRef kMGRegulatoryModelNumber = CFSTR("RegulatoryModelNumber");
 static const CFStringRef kMGSIMTrayStatus = CFSTR("SIMTrayStatus");
 static const CFStringRef kMGSerialNumber = CFSTR("SerialNumber");
 static const CFStringRef kMGMLBSerialNumber = CFSTR("MLBSerialNumber");
@@ -72,6 +73,10 @@ static const CFStringRef kMGUserAssignedDeviceName = CFSTR("UserAssignedDeviceNa
 #pragma mark - Bluetooth Information
 
 static const CFStringRef kMGBluetoothAddress = CFSTR("BluetoothAddress");
+
+#pragma mark - Ethernet Information
+
+static const CFStringRef kMGEthernetMacAddress = CFSTR("EthernetMacAddress");
 
 #pragma mark - Battery Information
 

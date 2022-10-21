@@ -30,8 +30,8 @@
 
 #define CHLocationInSource [NSString stringWithFormat:@CHStringify(__LINE__) " in %s", __FUNCTION__]
 
-#define CHLog(args...)			NSLog(@CHAppName ": %@", [NSString stringWithFormat:args])
-#define CHLogSource(args...)	NSLog(@CHAppName " @ " CHStringify(__LINE__) " in %s: %@", __FUNCTION__, [NSString stringWithFormat:args])
+#define CHLog(args...)			NSLog(@CHAppName ": %@\r", [NSString stringWithFormat:args])
+#define CHLogSource(args...)	NSLog(@CHAppName " @ " CHStringify(__LINE__) " in %s: %@\r", __FUNCTION__, [NSString stringWithFormat:args])
 
 #ifdef CHDebug
 	#define CHDebugLog(args...)			CHLog(args)
